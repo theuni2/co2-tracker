@@ -3,42 +3,48 @@
 export default function CO2Result({ result, onSaveActivity, isSaved }) {
   if (!result || !result.success) return null;
 
+  const isReuse = result.approachMode === 'reuse';
+
   return (
     <section id="co2-result" className="w-full max-w-4xl mx-auto py-6 px-4 sm:px-6">
-      <div className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border border-emerald-500/40 rounded-3xl p-6 sm:p-10 shadow-2xl shadow-emerald-500/10">
+      <div className={`relative overflow-hidden bg-gradient-to-b ${
+        isReuse ? 'from-emerald-950/90 via-slate-900 to-slate-950 border-emerald-500/50' : 'from-teal-950/90 via-slate-900 to-slate-950 border-teal-500/50'
+      } border rounded-3xl p-6 sm:p-10 shadow-2xl shadow-emerald-500/10`}>
         
         {/* Glow backdrop effects */}
-        <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className={`absolute -top-24 -right-24 w-72 h-72 ${isReuse ? 'bg-emerald-500/20' : 'bg-teal-500/20'} rounded-full blur-3xl pointer-events-none`} />
 
         <div className="relative z-10 text-center space-y-6">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold tracking-wide uppercase">
-            <span>🌱 Calculated Result</span>
+            <span>{isReuse ? '📚 Redistribution & Reuse Result' : '♻️ Responsible Recycling Result'}</span>
           </div>
 
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Your Recycling Impact
+          <h3 className="text-2xl sm:text-4xl font-black text-white">
+            Your Climate Impact
           </h3>
 
           {/* Quick Metrics Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2 text-slate-200 text-sm font-medium">
+              Mode: <span className="font-bold text-emerald-400">{isReuse ? 'Redistribution & Reuse' : 'Responsible Recycling'}</span>
+            </div>
             {result.sheets && (
-              <div className="bg-slate-800/80 border border-slate-700/60 rounded-xl px-4 py-2 text-slate-200 text-sm font-medium">
-                📄 <span className="font-bold text-white">{result.sheets.toLocaleString()}</span> sheets recycled ({result.sheetSize})
+              <div className="bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2 text-slate-200 text-sm font-medium">
+                📄 <span className="font-bold text-white">{result.sheets.toLocaleString()}</span> sheets ({result.sheetSize})
               </div>
             )}
-            <div className="bg-slate-800/80 border border-slate-700/60 rounded-xl px-4 py-2 text-slate-200 text-sm font-medium">
-              ⚖️ <span className="font-bold text-white">{result.paperWeightFormatted} kg</span> {result.paperTypeLabel} recycled
+            <div className="bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2 text-slate-200 text-sm font-medium">
+              ⚖️ <span className="font-bold text-white">{result.paperWeightFormatted} kg</span> {result.paperTypeLabel}
             </div>
           </div>
 
           {/* Main Visual Number Display */}
-          <div className="my-8 py-8 px-6 bg-slate-950/70 border border-emerald-500/30 rounded-3xl backdrop-blur-md max-w-md mx-auto">
+          <div className="my-8 py-8 px-6 bg-slate-950/80 border border-emerald-500/30 rounded-3xl backdrop-blur-md max-w-md mx-auto">
             <p className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200 tracking-tight">
               {result.co2AvoidedFormatted} <span className="text-3xl sm:text-4xl font-extrabold">kg CO₂e</span>
             </p>
             <p className="text-slate-300 text-base font-semibold mt-3">
-              Estimated CO₂e avoided
+              {isReuse ? 'Estimated virgin paper manufacturing emissions avoided' : 'Estimated net landfill & energy emissions avoided'}
             </p>
           </div>
 

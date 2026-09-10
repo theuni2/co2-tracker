@@ -1,39 +1,45 @@
 import Link from 'next/link';
+import Read2RiseLogo from '../../components/common/Read2RiseLogo.jsx';
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center space-x-2.5 text-white group">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-lg group-hover:scale-105 transition-transform">
-            🌱
-          </span>
-          <span className="font-extrabold text-lg sm:text-xl tracking-tight">
-            Eco<span className="text-emerald-400">Tracker</span>
-          </span>
-        </Link>
+        <Read2RiseLogo size="medium" />
 
         {/* Navigation Links */}
-        <nav className="flex items-center space-x-4 sm:space-x-8">
+        <nav className="flex items-center space-x-3 sm:space-x-6">
           <Link
             href="/"
-            className="text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors hidden md:inline-block"
           >
             Home
           </Link>
+          <a
+            href="/#initiative-modes"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors hidden md:inline-block"
+          >
+            Our Initiative
+          </a>
+          <a
+            href="/#ngo-partners"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-teal-400 transition-colors hidden md:inline-block"
+          >
+            NGO Partners
+          </a>
           <Link
             href="/co2-tracker"
-            className="text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors flex items-center space-x-1"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors flex items-center space-x-1"
           >
             <span>CO₂ Tracker</span>
-            <span className="hidden sm:inline px-2 py-0.5 text-[10px] uppercase font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full">
-              v1
+            <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full">
+              Dual Impact
             </span>
           </Link>
           <Link
             href="/co2-tracker#co2-calculator"
-            className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm rounded-xl shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
+            className="px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold text-xs sm:text-sm rounded-xl shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
           >
             Calculate Impact
           </Link>
