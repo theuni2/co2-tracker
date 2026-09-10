@@ -4,7 +4,7 @@ import AnimatedHeroBackground from './AnimatedHeroBackground.jsx';
 export default function HomeHero() {
   return (
     <section className="relative w-full min-h-[88vh] flex flex-col justify-center items-center py-20 px-4 sm:px-6 text-center bg-slate-950 overflow-hidden border-b border-emerald-500/20 shadow-2xl">
-      
+
       {/* FULL WIDTH ANIMATED GIF BACKGROUND */}
       <AnimatedHeroBackground />
 
@@ -26,23 +26,23 @@ export default function HomeHero() {
 
       {/* FOREGROUND HERO CONTENT CONTAINER */}
       <div className="relative z-10 space-y-8 max-w-4xl mx-auto">
-        
+
         {/* Feature Badges */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           <span className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-emerald-950/80 backdrop-blur-md transform hover:scale-105 transition-transform cursor-default">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-            <span>📖 Read2Rise Initiative</span>
+            <span>📖 Literacy Initiative</span>
           </span>
           <span className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/50 text-teal-200 text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-teal-950/80 backdrop-blur-md transform hover:scale-105 transition-transform cursor-default">
-            <span>🤝 NGO Book Redistribution + Responsible Recycling</span>
+            <span>📖 Read2Rise</span>
           </span>
         </div>
 
         {/* Main Headline */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-[1.1]">
-          Empower Education & <br />
+          Redistribute. Recycle. <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200 animate-shimmer-text">
-            Track Your Climate Impact
+            Measure Your Social & Climate Impact
           </span>
         </h1>
 
