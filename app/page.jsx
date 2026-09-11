@@ -1,4 +1,5 @@
 import HomeHero from '../components/home/HomeHero.jsx';
+import ProblemSolutionSection from '../components/home/ProblemSolutionSection.jsx';
 import DualInitiativeSection from '../components/home/DualInitiativeSection.jsx';
 import NGOPartnersSection from '../components/home/NGOPartnersSection.jsx';
 import SavingMechanismSection from '../components/home/SavingMechanismSection.jsx';
@@ -19,6 +20,7 @@ export default function Home() {
 
       <div className="relative z-10 space-y-16 pb-20">
         <HomeHero />
+        <ProblemSolutionSection />
         <DualInitiativeSection />
         <NGOPartnersSection />
         <SavingMechanismSection />

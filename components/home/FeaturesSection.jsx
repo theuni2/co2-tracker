@@ -224,11 +224,6 @@ export default function FeaturesSection() {
                   {item.description}
                 </p>
               </div>
-
-              <div className="pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-bold text-emerald-400 group-hover:text-emerald-300">
-                <span>{activeFeature === idx ? 'Currently Viewing' : 'Explore Feature'}</span>
-                <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
-              </div>
             </div>
           </div>
         ))}

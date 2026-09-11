@@ -10,39 +10,48 @@ export default function Nav() {
 
         {/* Navigation Links */}
         <nav className="flex items-center space-x-3 sm:space-x-6">
-          {/* <Link
+          <Link
             href="/"
-            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors hidden md:inline-block"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors"
           >
             Home
           </Link>
+
           <a
             href="/#initiative-modes"
-            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors hidden md:inline-block"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors hidden sm:inline-block"
           >
-            Our Initiative
+            Two Initiative Modes
           </a>
+
           <a
             href="/#ngo-partners"
             className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-teal-400 transition-colors hidden md:inline-block"
           >
             NGO Partners
-          </a> */}
-          {/* <Link
+          </a>
+
+          <Link
             href="/co2-tracker"
-            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors flex items-center space-x-1"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors hidden md:inline-block"
           >
-            <span>CO₂ Tracker</span>
-            <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full">
-              Dual Impact
-            </span>
+            CO₂ Tracker
           </Link>
+
+          <Link
+            href="/co2-tracker#methodology"
+            className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors hidden lg:inline-block"
+          >
+            Methodology
+          </Link>
+
+          {/* Primary CTA Button */}
           <Link
             href="/co2-tracker#co2-calculator"
-            className="px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold text-xs sm:text-sm rounded-xl shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
+            className="px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
           >
             Calculate Impact
-          </Link> */}
+          </Link>
         </nav>
       </div>
     </header>
