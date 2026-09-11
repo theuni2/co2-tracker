@@ -6,6 +6,15 @@ export default function NGOPartnersSection() {
   const [activeTab, setActiveTab] = useState('partners'); // 'partners' | 'gallery'
   const [activeImageModal, setActiveImageModal] = useState(null);
   const [activeCertModal, setActiveCertModal] = useState(null);
+  const [activeRecycleModal, setActiveRecycleModal] = useState(false);
+  const [recycleSubmitted, setRecycleSubmitted] = useState(false);
+  const [recycleForm, setRecycleForm] = useState({
+    name: '',
+    contact: '',
+    location: '',
+    paperType: 'Mixed Used Paper & Notebooks',
+    approxKg: '25'
+  });
 
   const partners = [
     {
@@ -203,21 +212,35 @@ export default function NGOPartnersSection() {
         </div>
       )}
 
-      {/* Partner CTA Box */}
+      {/* Partner & Paper Collection CTA Box */}
       <div className="mt-12 p-8 bg-gradient-to-r from-slate-900 via-emerald-950/60 to-slate-900 border border-emerald-500/30 rounded-3xl text-center space-y-4 shadow-xl">
         <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-          Are You an NGO or Educational Institution?
+          Are You an NGO, School, or Paper Recycling Collector?
         </h3>
-        <p className="text-slate-300 text-sm max-w-xl mx-auto">
-          Partner with Read2Rise to receive storybooks, textbooks, or donate unused school notebooks to community libraries.
+        <p className="text-slate-300 text-sm max-w-2xl mx-auto">
+          Partner with Read2Rise to receive storybooks and textbooks for community libraries, or schedule a paper collection for responsible EPA recycling.
         </p>
-        <a
-          href="mailto:partners@read2rise.org"
-          className="inline-flex items-center space-x-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm rounded-xl transition-all cursor-pointer"
-        >
-          <span>Become an NGO Partner</span>
-          <span>✉️</span>
-        </a>
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a
+            href="mailto:partners@read2rise.org"
+            className="inline-flex items-center space-x-2 px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm rounded-xl transition-all cursor-pointer shadow-lg shadow-emerald-500/20"
+          >
+            <span>Become an NGO Partner</span>
+            <span>✉️</span>
+          </a>
+
+          <button
+            type="button"
+            onClick={() => {
+              setRecycleSubmitted(false);
+              setActiveRecycleModal(true);
+            }}
+            className="inline-flex items-center space-x-2 px-6 py-3.5 bg-slate-950 hover:bg-teal-950/80 text-teal-300 border border-teal-500/50 hover:border-teal-400 font-extrabold text-sm rounded-xl transition-all cursor-pointer shadow-lg shadow-teal-950/40"
+          >
+            <span>Collect Paper for Recycle</span>
+            <span>♻️</span>
+          </button>
+        </div>
       </div>
 
       {/* FULL-SIZE GALLERY IMAGE LIGHTBOX MODAL */}
@@ -293,6 +316,157 @@ export default function NGOPartnersSection() {
                 <span>↗</span>
               </a>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* RECYCLE PAPER COLLECTION REQUEST MODAL */}
+      {activeRecycleModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-md animate-fadeIn">
+          <div className="relative w-full max-w-lg bg-slate-900 border border-teal-500/40 rounded-3xl overflow-hidden shadow-2xl space-y-5 p-6 sm:p-8">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <span className="text-xs uppercase font-extrabold text-teal-400 tracking-wider">Mode 2 • Paper Recycling Drive</span>
+                <h3 className="text-xl font-black text-white">Collect Paper for Recycle ♻️</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveRecycleModal(false)}
+                className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-base font-bold transition-colors cursor-pointer"
+                title="Close modal"
+              >
+                ✕
+              </button>
+            </div>
+
+            {!recycleSubmitted ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setRecycleSubmitted(true);
+                }}
+                className="space-y-4"
+              >
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Have old newspapers, used notebooks, or bulk paper lying around? Read2Rise coordinates paper collection drives for certified EPA recycling mills.
+                </p>
+
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Your Name / Organization</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Rahul Sharma / ABC Academy"
+                      value={recycleForm.name}
+                      onChange={(e) => setRecycleForm({ ...recycleForm, name: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-teal-400 rounded-xl text-sm text-white focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Phone / WhatsApp</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="+91 98765 43210"
+                        value={recycleForm.contact}
+                        onChange={(e) => setRecycleForm({ ...recycleForm, contact: e.target.value })}
+                        className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-teal-400 rounded-xl text-sm text-white focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Pickup City / Area</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. New Delhi"
+                        value={recycleForm.location}
+                        onChange={(e) => setRecycleForm({ ...recycleForm, location: e.target.value })}
+                        className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-teal-400 rounded-xl text-sm text-white focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Paper Material Type</label>
+                      <select
+                        value={recycleForm.paperType}
+                        onChange={(e) => setRecycleForm({ ...recycleForm, paperType: e.target.value })}
+                        className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-teal-400 rounded-xl text-sm text-white focus:outline-none"
+                      >
+                        <option value="Mixed Used Paper & Notebooks">Mixed Used Paper & Notebooks</option>
+                        <option value="Old Newspapers & Magazines">Old Newspapers & Magazines</option>
+                        <option value="Office Paper & Shreds">Office Paper & Shreds</option>
+                        <option value="Corrugated Cartons & Boxes">Corrugated Cartons & Boxes</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Approx. Weight (kg)</label>
+                      <input
+                        type="number"
+                        min="5"
+                        max="5000"
+                        required
+                        value={recycleForm.approxKg}
+                        onChange={(e) => setRecycleForm({ ...recycleForm, approxKg: e.target.value })}
+                        className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 focus:border-teal-400 rounded-xl text-sm text-white focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 space-y-2">
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 bg-gradient-to-r from-teal-400 to-emerald-500 hover:from-teal-300 hover:to-emerald-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-teal-500/20 transition-all cursor-pointer flex items-center justify-center space-x-2"
+                  >
+                    <span>Submit Pickup Request</span>
+                    <span>🚀</span>
+                  </button>
+
+                  <a
+                    href={`https://wa.me/?text=${encodeURIComponent(
+                      `Hi Read2Rise Team! I want to schedule paper collection for recycling. Name: ${recycleForm.name || 'Friend'}, Location: ${recycleForm.location || 'Local'}, Approx: ${recycleForm.approxKg} kg of ${recycleForm.paperType}.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-slate-950 hover:bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center space-x-2 cursor-pointer"
+                  >
+                    <span>Or Connect Directly on WhatsApp</span>
+                    <span>💬</span>
+                  </a>
+                </div>
+              </form>
+            ) : (
+              <div className="text-center py-6 space-y-4 animate-fadeIn">
+                <div className="w-16 h-16 bg-teal-500/20 text-teal-300 rounded-full flex items-center justify-center text-3xl mx-auto border border-teal-500/40">
+                  🎉
+                </div>
+                <h4 className="text-2xl font-black text-white">Collection Request Received!</h4>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto">
+                  Thank you, <strong className="text-teal-300">{recycleForm.name}</strong>! Our local recycling pickup team in <strong className="text-white">{recycleForm.location || 'your area'}</strong> will get in touch shortly.
+                </p>
+                <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl text-xs text-slate-400 space-y-1">
+                  <p className="font-bold text-teal-400 uppercase">Estimated Recycling Impact</p>
+                  <p className="text-lg font-black text-white">
+                    ~{(parseFloat(recycleForm.approxKg || 25) * 2.89).toFixed(1)} kg CO₂e Offset Saved
+                  </p>
+                  <p className="text-[11px] text-slate-500">Based on EPA WARM paper recycling factors.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setActiveRecycleModal(false)}
+                  className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl transition-all cursor-pointer"
+                >
+                  Close Window
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

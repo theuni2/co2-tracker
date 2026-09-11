@@ -9,7 +9,7 @@ export default function ProblemSolutionSection() {
     {
       icon: '🌍',
       tag: 'Environmental Crisis',
-      title: 'Paper Waste & Carbon Emissions',
+      title: 'Deforestation & Carbon Waste',
       description: 'Tons of usable books and recyclable paper are dumped into landfills each year, leading to unnecessary tree logging, high industrial energy use, and methane emissions.'
     }
   ];
@@ -19,18 +19,18 @@ export default function ProblemSolutionSection() {
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto mb-14">
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-bold uppercase tracking-wide shadow-md">
-          <span>🎯 Our Mission & Purpose</span>
+          <span>🎯 Why We Are Doing This • Core Agenda</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-          What Problem Are We <br />
+          Why Are We Doing This? <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200 animate-shimmer-text">
-            Trying to Solve?
+            Reuse First to Save Trees, Recycle Second to Protect Our Planet.
           </span>
         </h2>
 
         <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-          Read2Rise bridges the gap between educational inequality and environmental waste by turning discarded paper into learning resources and carbon savings.
+          Our core agenda is simple: If a book or notebook can be used, we redistribute it to children and community libraries—directly saving trees, eliminating virgin paper manufacturing, and reducing CO₂ emissions. If paper is damaged or non-reusable, we recycle it responsibly, protecting the environment and saving carbon every step of the way.
         </p>
       </div>
 
@@ -69,49 +69,55 @@ export default function ProblemSolutionSection() {
 
         <div className="max-w-3xl space-y-4">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-black uppercase">
-            <span>✨ The Read2Rise Integrated Solution</span>
+            <span>✨ The Read2Rise Core Agenda</span>
           </div>
 
           <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
-            One Core Initiative. <br />
+            Reuse Books First. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-              Dual Social & Environmental Dividends.
+              Recycle Paper Second. Save Trees & CO₂ Always.
             </span>
           </h3>
 
           <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-            With the Read2Rise initiative, we connect book donors, NGO partners, and recycling networks. Before any paper is recycled, we first redistribute usable books to students and community libraries, solving literacy challenges while slashing carbon emissions.
+            Every book and sheet of paper collected follows our strict sustainability rule: <strong className="text-emerald-400">reuse whenever possible</strong> to save living trees and slash maximum carbon emissions, and <strong className="text-teal-300">recycle when non-reusable</strong> to keep waste out of landfills and protect our environment.
           </p>
         </div>
 
         {/* Dual Outcome Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-          {/* Outcome 1: Literacy */}
+          {/* Outcome 1: Reuse & Literacy */}
           <div className="p-6 bg-slate-950/90 border border-emerald-500/30 rounded-2xl space-y-3 shadow-lg">
             <div className="flex items-center space-x-3">
               <span className="text-3xl">📚</span>
               <div>
-                <span className="text-xs font-black text-emerald-400 uppercase tracking-wider">Mode 1: Redistribution</span>
-                <h4 className="text-lg font-bold text-white">Boosting Community Literacy</h4>
+                <span className="text-xs font-black text-emerald-400 uppercase tracking-wider">Priority 1 • Reuse Usable Books</span>
+                <h4 className="text-lg font-bold text-white">Save Trees & Boost Literacy</h4>
               </div>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Storybooks establish vibrant reading corners and new libraries. Textbooks & notebooks empower students in under-resourced schools to continue learning.
+              If a book or notebook can be read, we redistribute it to students and community libraries. Reusing directly saves trees from logging, avoids virgin paper manufacturing emissions, and empowers children.
             </p>
+            <div className="pt-2 border-t border-slate-800 text-[11px] font-bold text-emerald-400">
+              🌳 100% Virgin Paper Displaced & Maximum CO₂ Saved
+            </div>
           </div>
 
-          {/* Outcome 2: Climate Impact */}
+          {/* Outcome 2: Recycling & Environment */}
           <div className="p-6 bg-slate-950/90 border border-teal-500/30 rounded-2xl space-y-3 shadow-lg">
             <div className="flex items-center space-x-3">
               <span className="text-3xl">🌿</span>
               <div>
-                <span className="text-xs font-black text-teal-300 uppercase tracking-wider">Mode 2: Responsible Recycling</span>
-                <h4 className="text-lg font-bold text-white">Cutting Carbon Emissions</h4>
+                <span className="text-xs font-black text-teal-300 uppercase tracking-wider">Priority 2 • Responsible Recycling</span>
+                <h4 className="text-lg font-bold text-white">Protect Environment & Save Carbon</h4>
               </div>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Materials that cannot be reused are repulped into fresh recycled paper pulp, saving virgin trees and preventing landfill methane off-gassing.
+              If paper is torn or non-reusable, we route it to certified paper recycling mills. Recycling repulps paper fibers without cutting trees, saving industrial energy, water, and landfill emissions.
             </p>
+            <div className="pt-2 border-t border-slate-800 text-[11px] font-bold text-teal-300">
+              ♻️ Zero Landfill Waste & EPA CO₂ Offset Verified
+            </div>
           </div>
         </div>
       </div>
